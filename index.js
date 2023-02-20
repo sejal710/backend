@@ -1,5 +1,6 @@
 
 const express = require('express');
+const cors = require("cors")
 const app = express();
 const {connection} = require("./db");
 const {userRouter} = require("./routes/User.routes")
@@ -8,7 +9,7 @@ require("dotenv").config()
 const {authetication} = require("./middleware/authenticate.middleware")
 
 app.use(express.json());
-
+app.use(cors())
 app.get("/",(req,res) => {
     res.send("Home Page")
 })
